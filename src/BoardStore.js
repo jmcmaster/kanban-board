@@ -1,7 +1,7 @@
 import EventEmitter from 'events';
 import uniqueId from 'lodash/uniqueId';
-import * as actionTypes from './actionTypes';
-import AppDispatcher from './AppDispatcher';
+import * as actionTypes from './actions/actionTypes';
+
 
 let boards = {
   "1000": {
@@ -29,11 +29,11 @@ class BoardStore extends EventEmitter {
   constructor() {
     super();
 
-    AppDispatcher.register((action) => {
-      if (action.type === actionTypes.ADD_NEW_CARD) { return this.addCard(action.payload); }
-      if (action.type === actionTypes.ADD_NEW_LIST) { return this.addList(action.payload); }
-      if (action.type === actionTypes.ADD_NEW_BOARD) { return this.addBoard(action.payload); }
-    });
+    // AppDispatcher.register((action) => {
+    //   if (action.type === actionTypes.ADD_NEW_CARD) { return this.addCard(action.payload); }
+    //   if (action.type === actionTypes.ADD_NEW_LIST) { return this.addList(action.payload); }
+    //   if (action.type === actionTypes.ADD_NEW_BOARD) { return this.addBoard(action.payload); }
+    // });
   }
 
   getBoard(id) {

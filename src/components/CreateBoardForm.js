@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { addBoard } from '../actions';
 
 class CreateBoardForm extends Component {
   state = {
@@ -8,7 +7,7 @@ class CreateBoardForm extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    addBoard(this.state.newBoardName)
+    this.props.addBoard(this.state.newBoardName)
     this.setState({newBoardName: ''})
   }
 

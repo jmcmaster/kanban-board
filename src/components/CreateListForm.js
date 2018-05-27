@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { addList } from '../actions';
 
 class CreateListForm extends Component {
   state = {
@@ -7,9 +6,8 @@ class CreateListForm extends Component {
   }
 
   handleFormSubmit = (e) => {
-    const { board } = this.props;
     e.preventDefault();
-    addList(this.state.newListName, board.id)
+    this.props.addList(this.state.newListName)
     this.setState({newListName: ''})
   }
 
