@@ -1,5 +1,5 @@
 import uniqueId from 'lodash/uniqueId';
-import { ADD_NEW_CARD, ADD_NEW_LIST, ADD_NEW_BOARD } from '../actions/actionTypes';
+import { ADD_NEW_CARD, ADD_NEW_LIST, ADD_NEW_BOARD, HANDLE_DROP } from '../actions/actionTypes';
 
 export default function(state = {}, action) {
   if (action.type === ADD_NEW_CARD) {
@@ -52,6 +52,24 @@ export default function(state = {}, action) {
         id,
         lists: [],
         cards: []
+      }
+    };
+  }
+
+  if (action.type === HANDLE_DROP) {
+    console.log(action.payload);
+    const {card, newListId} = action.payload;
+
+    return {
+      ...state,
+      [card.board]: {
+        ...state[card.board],
+        cards: [
+          ...state[card.board].cards.map((c) => {
+            if (c.id === card.id) c.list = newListId;
+            return c;
+          })
+        ]
       }
     };
   }
