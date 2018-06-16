@@ -1,4 +1,4 @@
-import uniqueId from 'lodash/uniqueId';
+import uuidv1 from 'uuid/v1';
 import { ADD_NEW_CARD, ADD_NEW_LIST, ADD_NEW_BOARD, HANDLE_DROP } from '../actions/actionTypes';
 
 export default function(state = {}, action) {
@@ -9,7 +9,7 @@ export default function(state = {}, action) {
       name: value,
       list: listId,
       board: boardId,
-      id: uniqueId()
+      id: uuidv1()
     };
 
     return {
@@ -26,7 +26,7 @@ export default function(state = {}, action) {
 
   if (action.type === ADD_NEW_LIST) {
     const { name, boardId } = action.payload;
-    const id = uniqueId();
+    const id = uuidv1();
     return {
       ...state,
       [boardId]: {
@@ -44,7 +44,7 @@ export default function(state = {}, action) {
 
   if (action.type === ADD_NEW_BOARD) {
     const { name } = action.payload;
-    const id = uniqueId();
+    const id = uuidv1();
     return {
       ...state,
       [id]: {

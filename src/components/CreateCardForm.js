@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../styles/styles.css';
 
 class CreateCardForm extends Component {
   state = {
@@ -17,14 +18,18 @@ class CreateCardForm extends Component {
 
   render() {
     return (
-      <form
-          onSubmit={this.handleFormSubmit}>
-          <input
-            onChange={this.handleInputChange}
-            value={this.state.newCard}
-            type="text"
-            placeholder="Add new card..." />
-        </form>
+      <div className="CreateCardForm">
+        <form
+            className="CreateCardForm_form"
+            onSubmit={this.handleFormSubmit}>
+            <input
+              className="CreateCardForm__input"
+              onChange={this.handleInputChange}
+              value={this.state.newCard}
+              type="text"
+              placeholder="Add new card..." />
+          </form>
+      </div>
     );
   }
 }

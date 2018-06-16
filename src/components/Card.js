@@ -6,7 +6,7 @@ class Card extends Component {
   render() {
     const { card, connectDragSource } = this.props;
     return connectDragSource(
-      <div >{card.name}</div>
+      <div>{card.name}</div>
     );
 
   }

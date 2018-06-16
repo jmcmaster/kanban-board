@@ -1,0 +1,42 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* CardList */
+.Board {
+  width: 100%;
+  white-space: nowrap;
+  display: flex;
+}
+
+.CardListWrapper {
+}
+
+.CardList {
+  background-color: #50af843d;
+  /* display: inline-block; */
+  flex: auto;
+  width: 200px;
+  min-height: 100px;
+  margin: 6px;
+  padding: 10px;
+}
+
+/* CreateCardForm */
+.CreateCardForm {
+  width: 100%;
+}
+
+.CreateCardForm_form {
+  display: flex;
+  width: 100%;
+}
+
+.CreateCardForm__input {
+  flex: auto;
+  border:0;
+  background-color: #FFF;
+  padding: 10px;
+}

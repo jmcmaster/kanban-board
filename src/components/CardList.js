@@ -5,17 +5,20 @@ import flow from 'lodash/flow';
 import CreateCardContainer from '../containers/CreateCardContainer';
 import Card from './Card';
 import { handleDrop } from '../actions/dragDropActions';
+import '../styles/styles.css';
 
 class CardList extends Component {
   render() {
     const { cards, list, board, connectDropTarget } = this.props;
     return connectDropTarget(
-      <div>
-        <h3>{list.name}</h3>
-        {cards.map((card) => (
-          <Card key={card.id} card={card} />
-        ))}
-        <CreateCardContainer list={list} board={board} />
+      <div className="CardListWrapper">
+        <div className="CardList">
+          <h3>{list.name}</h3>
+          {cards.map((card) => (
+            <Card key={card.id} card={card} />
+          ))}
+          <CreateCardContainer list={list} board={board} />
+        </div>
       </div>
     );
   }
